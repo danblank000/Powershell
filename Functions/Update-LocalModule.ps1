@@ -6,20 +6,29 @@
     
         foreach($GitMod in $GitLocation)
         {
-        
+        $GitModName = $GitMod.Name
+            
             foreach($LiveMod in $LiveLocation)
             {
+            $LiveModName = $LiveMod.Name
 
                 if($GitMod.name -match $LiveMod.name)
                 {
 
                 Write-Host "yes $LiveMod and $GitMod"
 
+
+
+                Write-Host "*************************"
+                Write-Host ""
+
                 }
 
                 else
                 {
                 Write-Host "No $LiveMod and $GitMod"
+                Write-Host "*************************"
+                Write-Host ""
                 }
 
             }
