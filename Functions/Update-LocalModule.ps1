@@ -15,22 +15,20 @@
                 if($GitMod.name -match $LiveMod.name)
                 {
 
-                Write-Host "yes $LiveMod and $GitMod"
+                $FromPath = "C:\Stuff\Git\Powershell\Modules\$GitModName"
+                set-location $FromPath
+                $GitTest = git pull
 
+                    if(!($GitTest -match "Already up to date."))
+                    {
+                    write-host "Match"
+                    Copy-Item "$FromPath\*" $ToPath -Recurse
+                    }
 
-
-                Write-Host "*************************"
-                Write-Host ""
+                    $ToPath = "\\kslnas01\folderredirection$\daniel.blank\My Documents\WindowsPowerShell\Modules\$LiveModName"
 
                 }
-
-                else
-                {
-                Write-Host "No $LiveMod and $GitMod"
-                Write-Host "*************************"
-                Write-Host ""
-                }
-
+                
             }
 
         }
