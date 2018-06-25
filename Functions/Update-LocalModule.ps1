@@ -19,10 +19,10 @@
                 set-location $FromPath
                 $GitTest = git pull
 
-                    if(!($GitTest -match "Already up to date."))
+                    if ($GitTest -match "Already up to date.")
                     {
                     write-host "Match"
-                    Copy-Item "$FromPath\*" $ToPath -Recurse
+                    Copy-Item $FromPath $ToPath -Recurse
                     }
 
                     $ToPath = "\\kslnas01\folderredirection$\daniel.blank\My Documents\WindowsPowerShell\Modules\$LiveModName"
